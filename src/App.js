@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 import data from "./data.json";
 
-function generateD(data, zoom) {
+function generatePathD(data, zoom) {
   return data.prices
     .map(
       ([timestamp, price], index) =>
@@ -102,11 +102,11 @@ function App() {
             fill="none"
             stroke="red"
             strokeWidth={zoom}
-            d={generateD(data, zoom)}
+            d={generatePathD(data, zoom)}
           />
           {data.prices
-            .filter((el, index) => index % Math.abs((15 - zoom) * 10) === 0)
-            .map(([timestamp, price]) => (
+            .filter((_, index) => index % Math.abs((15 - zoom) * 10) === 0)
+            .map(([timestamp]) => (
               <Text
                 key={timestamp}
                 timestamp={timestamp}
