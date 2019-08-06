@@ -64,8 +64,7 @@ function App() {
   }
 
   function hoverDate(ev) {
-    setHoverX(ev.clientX - ev.target.clientLeft);
-    console.dir(ev.currentTarget);
+    setHoverX(ev.clientX);
   }
 
   return (
@@ -92,7 +91,7 @@ function App() {
           height={`${getMaxSize(data, zoom).y}px`}
         >
           <rect
-            x={hoverX * zoom}
+            x={hoverX}
             y="0"
             width={1 * zoom}
             height="100%"
